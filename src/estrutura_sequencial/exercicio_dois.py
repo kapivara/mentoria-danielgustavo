@@ -10,6 +10,3 @@ def main():
     numero = input("Digite aqui um número: ")
     mensagem = imprime_numero(numero)
     print(mensagem)
-
-#chamada da função principal
-#main()
