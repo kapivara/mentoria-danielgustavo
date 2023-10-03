@@ -6,6 +6,12 @@ def imprime_resultado(resultado):
     return f"A soma de N1 + N2 e de {resultado}"
 
 def soma_numero(numero_um, numero_dois):
+    if type(numero_um) != int:
+        raise Exception("O primeiro número não é um inteiro")
+    
+    if type(numero_dois) != int:
+        raise Exception("O segundo número não é um inteiro")
+    
     return numero_um + numero_dois
     
 def main():
