@@ -28,4 +28,4 @@ def main():
     mensagem = imprime_area_quadrado(dobro_area)
     return mensagem
 
-main()
+#main()
