@@ -18,21 +18,21 @@ def calcula_peso_ideal(altura, sexo):
             raise Exception ("Informe a altura corretamente")
            
     elif altura < 0:
-            raise Exception("Por favor informe uma altura positiva!!!")
+            raise Exception("Numeros negativos não são aceitos!!!!")
 
-    elif sexo != str:
+    elif type (sexo) != str:
          raise Exception("Por favor informe o sexo corretamente")  
 
     elif sexo == "M":
-        peso_ideal = (72.7*altura) - 58
+        peso_ideal = (72.7*altura) - 58.0
 
     elif sexo == "F":
         peso_ideal = (62.1*altura) - 44.7
 
-        return peso_ideal
+    return peso_ideal
 
 def imprime_peso_ideal(peso_ideal):
-    print(f"Seu peso ideal seria de {peso_ideal}")
+    return f"Seu peso ideal seria de {peso_ideal}"
 
 def main():
     sexo_pessoa = str(input("Qual seu sexo ? ")).upper()
@@ -41,4 +41,6 @@ def main():
     retorno_mensagem = imprime_peso_ideal(peso_ideal)
     return retorno_mensagem
 
-main()
+#main()
+
+
