@@ -33,4 +33,4 @@ def main():
     mensagem = imprime_salario(valor_salario)
     return(mensagem)
 
-main()
+#main()
