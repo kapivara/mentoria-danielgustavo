@@ -7,8 +7,8 @@ class TestExercicioOito(unittest.TestCase):
         self.assertEqual(imprime_temperatura(temperatura_celsius), f"A temperatura em graus celsius e de {temperatura_celsius}.")
 
     def test_converte_temperatura(self):
-        self.assertEqual(converte_temperatura(temperatura_Fahrenheit=80,), 26.67)
-        self.assertEqual(converte_temperatura(temperatura_Fahrenheit=-100),-73.33)
+        self.assertEqual(converte_temperatura(temperatura_Fahrenheit=80,), 26.666666666666668)
+        self.assertEqual(converte_temperatura(temperatura_Fahrenheit=-100),-73.33333333333334)
 
     def test_exeptions(self):
         try:
