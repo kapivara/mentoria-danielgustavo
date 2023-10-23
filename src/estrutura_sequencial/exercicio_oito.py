@@ -6,21 +6,25 @@ referido mês.#8
 
 def calcula_salario_final(valor_hora, horas_trabalhadas):
 
-    if valor_hora != float:
-        raise Exception("Digite o 'VALOR' de horas trabalhadas!!!!")
-    
-    elif horas_trabalhadas != float:
-        raise Exception ("Digite a quantidade de 'HORAS' trabalhadas!!!!")
+    if not isinstance(valor_hora, (float, int)):
+        raise Exception ("Digite o 'VALOR' de cada hora trabalhada!!!!")
     
     elif valor_hora < 0:
         raise Exception ("O valor da hora de trabalho não pode ser negativo!!!!")
+    
+    elif not isinstance(horas_trabalhadas, (float, int)):
+        raise Exception ("Digite a quantidade de 'HORAS' trabalhadas!!!!")
+    
+    elif horas_trabalhadas < 0:
+        raise Exception ("A quantidad de horas de trabalho não pode ser negativo!!!!")
+       
 
     salario_final = valor_hora * horas_trabalhadas
 
     return salario_final
 
 def imprime_salario(salario_final):
-     print((f" O seu salario no fim do mês, será de R$ {salario_final:.2f}."))
+     return ((f" O seu salario no fim do mês, será de R$ {salario_final}."))
 
 def main():
     valor_hora = float(input("Qual valor da sua hora de trabalho ? "))
@@ -29,4 +33,4 @@ def main():
     mensagem = imprime_salario(valor_salario)
     return(mensagem)
 
-#main()
+main()
