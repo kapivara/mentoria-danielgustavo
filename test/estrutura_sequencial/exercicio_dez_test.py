@@ -12,6 +12,6 @@ class TestExercicioDez(unittest.TestCase):
 
     def test_exeptions(self):
         try:
-            converte_temperatura(temperatura_Fahrenheit="80")
+            converte_temperatura(temperatura_celsius="80")
         except Exception as d:
             self.assertEqual(d.args[0], "Digite uma termperatura válida")
