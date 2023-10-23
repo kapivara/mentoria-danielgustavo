@@ -22,3 +22,4 @@ class TestExercicioSeis(unittest.TestCase):
             calcula_area(raio_area=-10)
         except Exception as d:
             self.assertEqual(d.args[0], "A medida da área deve ter um valor positivo")
+        
