@@ -25,3 +25,4 @@ class TestExercicioSete(unittest.TestCase):
             calcula_area_quadrado(lado_um=-10, lado_dois=5)
         except Exception as d:
             self.assertEqual(d.args[0], "As medidas dos lados devem ter valores positivos!!!")
+        
