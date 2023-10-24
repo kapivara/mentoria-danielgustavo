@@ -35,13 +35,13 @@ def terceiro_ao_cubo(numero_real):
     return resultado
 
 def imprime_resultado_dobro(resultado_dobro_primeiro_metade_segundo):
-    print((f"O produto do dobro do primeiro com metade do segundo e igual a {resultado_dobro_primeiro_metade_segundo}"))
+    return((f"O produto do dobro do primeiro com metade do segundo e igual a {resultado_dobro_primeiro_metade_segundo}"))
 
 def imprime_resultado_triplo_primeiro(resultado_triplo_primeiro_soma_terceiro):
-    print((f"A soma do triplo do primeiro com o terceiro e igual a {resultado_triplo_primeiro_soma_terceiro}"))
+    return((f"A soma do triplo do primeiro com o terceiro e igual a {resultado_triplo_primeiro_soma_terceiro}"))
 
 def imprime_terceiro_ao_cubo(resultado_terceiro_cubo):
-    print((f"O terceiro numero elevado ao cubo e igual a {resultado_terceiro_cubo}"))
+    return((f"O terceiro numero elevado ao cubo e igual a {resultado_terceiro_cubo}"))
 
 def main():
     primeiro_numero_inteiro = int(input("Digite o primeiro número inteiro: "))

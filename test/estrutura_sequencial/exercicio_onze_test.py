@@ -47,4 +47,3 @@ class TestExercicioDez(unittest.TestCase):
             terceiro_ao_cubo(numero_real="10.898989889898989")
         except Exception as d:
             self.assertEqual(d.args[0], "Digite um número real por favorzinho")
-            
