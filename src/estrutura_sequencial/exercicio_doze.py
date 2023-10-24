@@ -42,5 +42,3 @@ def main():
     return retorno_mensagem
 
 #main()
-
-
