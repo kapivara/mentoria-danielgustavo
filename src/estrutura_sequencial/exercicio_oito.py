@@ -24,7 +24,7 @@ def calcula_salario_final(valor_hora, horas_trabalhadas):
     return salario_final
 
 def imprime_salario(salario_final):
-     return ((f" O seu salario no fim do mês, será de R$ {salario_final}."))
+     return (f" O seu salario no fim do mês, será de R$ {salario_final}.")
 
 def main():
     valor_hora = float(input("Qual valor da sua hora de trabalho ? "))
@@ -34,4 +34,3 @@ def main():
     return(mensagem)
 
 #main()
-
