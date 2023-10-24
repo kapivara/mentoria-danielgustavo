@@ -1,7 +1,7 @@
 import unittest
 from src.estrutura_sequencial.exercicio_nove import converte_temperatura, imprime_temperatura
 
-class TestExercicioOito(unittest.TestCase):
+class TestExercicioNove(unittest.TestCase):
     def test_mensagem_retorno(self):
         temperatura_celsius = 35
         self.assertEqual(imprime_temperatura(temperatura_celsius), f"A temperatura em graus celsius e de {temperatura_celsius}.")
