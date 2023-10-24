@@ -1,7 +1,7 @@
 import unittest
 from src.estrutura_sequencial.exercicio_onze import calcula_produto_primeiro_numero, soma_triplo_primeiro_terceiro, terceiro_ao_cubo, imprime_terceiro_ao_cubo, imprime_resultado_dobro, imprime_resultado_triplo_primeiro
 
-class TestExercicioDez(unittest.TestCase):
+class TestExercicioOnze(unittest.TestCase):
     def test_mensagem_retorno(self):
         resultado_dobro_primeiro_metade_segundo = 45
         resultado_triplo_primeiro_soma_terceiro = 50
