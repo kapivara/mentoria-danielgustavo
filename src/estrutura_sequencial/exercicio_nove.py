@@ -13,7 +13,7 @@ def converte_temperatura(temperatura_Fahrenheit):
     return temperatura_celsius
 
 def imprime_temperatura(temperatura_celsius):
-     return((f"A temperatura em graus celsius e de {temperatura_celsius}."))
+     return(f"A temperatura em graus celsius e de {temperatura_celsius}.")
 
 def main():
     temperatura_Fahrenheit = float(input("Qual temperatura desejas converter em celsius? "))
