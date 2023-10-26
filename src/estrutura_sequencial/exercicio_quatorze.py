@@ -37,7 +37,7 @@ def calcula_salario_bruto(valor_hora, horas_trabalhadas):
 
 def calcula_imposto_de_renda(salario_bruto):
     if not isinstance(salario_bruto, (float, int)):
-        raise Exception ("Informe o valor do salario bruto corretamente!!!!")
+        raise Exception ("Algo está errado, por favor revise os dados")
     
     elif salario_bruto < 0:
         return(f"Com salário abaixo de zero, você não precisa pagar IR!!!")
@@ -48,7 +48,7 @@ def calcula_imposto_de_renda(salario_bruto):
 
 def calcula_inss(salario_bruto):
     if not isinstance(salario_bruto, (float, int)):
-        raise Exception ("Informe o valor do salario bruto corretamente!!!!")
+        raise Exception ("Algo está errado, por favor revise os dados")
     
     elif salario_bruto < 0:
         return(f"Com salário abaixo de zero, você não precisa pagar INSS!!!")
@@ -59,7 +59,7 @@ def calcula_inss(salario_bruto):
 
 def calcula_imposto_sindical(salario_bruto):
     if not isinstance(salario_bruto, (float, int)):
-        raise Exception ("Informe o valor do salario bruto corretamente!!!!")
+        raise Exception ("Algo está errado, por favor revise os dados")
     
     elif salario_bruto < 0:
         return(f"Com salário abaixo de zero, você não precisa pagar Imposto Sindical!!!")
@@ -70,7 +70,7 @@ def calcula_imposto_sindical(salario_bruto):
 
 def calcula_salario_liquido(salario_bruto, imposto_de_renda, inss, imposto_sindical):
     if not isinstance(salario_bruto, (float, int)):
-        raise Exception ("Informe o valor do salario bruto corretamente!!!!")
+        raise Exception ("Algo está errado, por favor revise os dados")
     
     elif salario_bruto < 0:
         return(f"Com salário abaixo de zero, você não precisa pagar Imposto Sindical!!!")
@@ -115,4 +115,4 @@ def main():
     print(retorno_imposto_sindical)
     print(retorno_salario_liquido)
 
-main()
+#main()
