@@ -25,16 +25,6 @@ class TestExercicioVinte(unittest.TestCase):
             self.assertEqual(f.args[0], "A nota não pode ser negativa!!!")
 
         try:
-            calcula_nota_media(nota_um=5.2, nota_dois=10)
-        except Exception as f:
-            self.assertEqual(f.args[0], "As notas devem ser numeros!!!")
-
-        try:
-            calcula_nota_media(nota_um=10, nota_dois=4.3)
-        except Exception as f:
-            self.assertEqual(f.args[0], "As notas devem ser numeros!!!")
-
-        try:
             calcula_nota_media(nota_um="10", nota_dois=5)
         except Exception as f:
             self.assertEqual(f.args[0], "As notas devem ser numeros!!!")
