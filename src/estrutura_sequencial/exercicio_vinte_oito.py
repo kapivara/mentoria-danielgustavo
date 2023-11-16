@@ -16,10 +16,10 @@ import sys
 
 def calculo_aumento_salario(salario_base):
     ranges_salario = [
-    (range(0, 280), 20),
-    (range(281, 700), 15),
-    (range(701, 1500), 10),
-    (range(1501, sys.maxsize), 5),
+    (range(0, 281), 20),
+    (range(281, 701), 15),
+    (range(701, 1501), 10),
+    (range(1501, 125000), 5),
 ]
     for (range_salario, percentual) in ranges_salario:
         if (salario_base in range_salario):
@@ -31,7 +31,7 @@ def main():
     print("\n Abaixo você vai ter acesso ao programa de calculos de aumentos, basta digitar seu salário corretamente para saber quanto de aumento você terá!!!\n")
 
     try:
-        salario_base = float(input("Digite aqui seu salario para saber seu percentual de aumento: "))
+        salario_base = int(input("Digite aqui seu salario para saber seu percentual de aumento: "))
     except ValueError:
        print("\nDigite seu salario corretamente!!!!\n")
        sys.exit(1)
