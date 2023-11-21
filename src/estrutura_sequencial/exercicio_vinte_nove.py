@@ -23,8 +23,8 @@ Salário Liquido	            R$ 935,00
 import sys
 
 def main():
-    valor_hora_trabalhada = int(input("Qual valor da hora da sua hora de trabalho? "))
-    qtd_horas_trabalhadas = int(input("Quantas horas de trabalho você teve esse mês? "))
+    valor_hora_trabalhada = float(input("Qual valor da hora da sua hora de trabalho? "))
+    qtd_horas_trabalhadas = float(input("Quantas horas de trabalho você teve esse mês? "))
 
     try:
         analise_exeptions(valor_hora_trabalhada, qtd_horas_trabalhadas)
@@ -42,10 +42,10 @@ def analise_exeptions(valor_hora, horas_trabalhadas):
         raise ValueError ("O valor da hora de trabalho não pode ser negativo!!!!")
 
     elif not isinstance(horas_trabalhadas, (float, int)):
-        raise ValueError ("Digite a quantidade de 'HORAS' trabalhadas!!!!")
+        raise Exception ("Digite a quantidade de 'HORAS' trabalhadas!!!!")
 
     elif horas_trabalhadas < 0:
-        raise ValueError ("A quantidad de horas de trabalho não pode ser negativo!!!!")
+        raise ValueError ("A quantidade de horas de trabalho não pode ser negativa!!!!")
 
 def calcula_salario_liquido(valor_hora, horas_trabalhadas):
     ranges_salarios = [
@@ -58,12 +58,13 @@ def calcula_salario_liquido(valor_hora, horas_trabalhadas):
     salario_bruto = valor_hora * horas_trabalhadas
     
     for (range_salario, percentual_ir, percentual_inss, percentual_fgts) in ranges_salarios:
-        if (salario_bruto in range_salario):
+        if salario_bruto >= range_salario.start and salario_bruto < range_salario.stop:
             valor_percentual_ir = salario_bruto*(percentual_ir/100)
             valor_percentual_inss = salario_bruto*(percentual_inss/100)
             valor_percentual_fgts = salario_bruto*(percentual_fgts/100)
             salario_liquido = salario_bruto - (valor_percentual_ir + valor_percentual_inss + valor_percentual_fgts)
             total_descontos = valor_percentual_ir + valor_percentual_inss + valor_percentual_fgts
-            return (f"Seu salário bruto e de R${salario_bruto}\nDesconto IR = R${valor_percentual_ir:.2f}\nDesconto INSS R${valor_percentual_inss:.2f}\nDesconto FGTS {valor_percentual_fgts:.2f}\nO total de descontos foi de R${total_descontos:.2f}\nSeu salario liquido e R${salario_liquido:.2f}")
 
+            return (f"Seu salário bruto e de R${salario_bruto}\nDesconto IR = R${valor_percentual_ir:.2f}\nDesconto INSS R${valor_percentual_inss:.2f}\nDesconto FGTS {valor_percentual_fgts:.2f}\nO total de descontos foi de R${total_descontos:.2f}\nSeu salario liquido e R${salario_liquido:.2f}")                       
+            
 main()
