@@ -99,7 +99,7 @@ def calcula_valores_impostos_fgts(salario_bruto):
     for (range_salario, percentual_fgts) in ranges_salarios:
         if salario_bruto > 7507.49:
             valor_percentual_fgts = 869.36
-            
+
         elif salario_bruto >= range_salario.start and salario_bruto < range_salario.stop:
             valor_percentual_fgts = salario_bruto*(percentual_fgts/100)
 
@@ -144,5 +144,4 @@ def calcula_valor_total_impostos(salario_bruto, valor_percentual_ir, valor_perce
 def retorna_mensagem_salario_liquido(salario_bruto, valor_percentual_ir, valor_percentual_inss, valor_percentual_fgts, total_descontos, salario_liquido):
     return f"Seu salário bruto e de R${salario_bruto:.2f}\nO desconto IR(-) = R${valor_percentual_ir:.2f}\nO desconto do INSS(-) = R${valor_percentual_inss:.2f}\nO valor do se FGTS e de = R${valor_percentual_fgts:.2f}\nO total de descontos foi de = R${total_descontos:.2f}\nSeu salario liquido e de = R${salario_liquido:.2f}"
 
-
-main()
+#main()
