@@ -1,5 +1,7 @@
 """
-Sabendo que os descontos são do Imposto de Renda, que depende do salário bruto (conforme tabela abaixo) e 3% para o Sindicato e que o FGTS corresponde a 11% do Salário Bruto, mas não é descontado (é a empresa que deposita). O Salário Líquido corresponde ao Salário Bruto menos os descontos.
+Sabendo que os descontos são do Imposto de Renda, que depende do salário bruto (conforme tabela abaixo)
+e 3% para o Sindicato e que o FGTS corresponde a 11% do Salário Bruto, mas não é descontado (é a empresa que deposita).
+O Salário Líquido corresponde ao Salário Bruto menos os descontos.
 
 O programa deverá pedir ao usuário o valor da sua hora e a quantidade de horas trabalhadas no mês.
 
@@ -26,13 +28,6 @@ def main():
     valor_hora_trabalhada = float(input("Qual valor da hora da sua hora de trabalho? "))
     qtd_horas_trabalhadas = float(input("Quantas horas de trabalho você teve esse mês? "))
 
-    try:
-        analise_exeptions(valor_hora_trabalhada, qtd_horas_trabalhadas)
-        resultado = calcula_salario_liquido(valor_hora_trabalhada, qtd_horas_trabalhadas)
-        print(resultado)
-    except Exception as e:
-        print(f"Erro: {e}")
-
     valor_salario_bruto = calcula_salario_bruto(valor_hora_trabalhada,qtd_horas_trabalhadas)
     valor_percentual_ir = calcula_valores_impostos_ir(valor_salario_bruto)
     valor_percentual_inss = calcula_valores_impostos_inss(valor_salario_bruto)
@@ -40,11 +35,11 @@ def main():
 
     valor_total_descontos = calcula_valor_total_impostos(valor_salario_bruto, valor_percentual_inss, valor_percentual_fgts)
 
-    valor_salario_liquido = calcula_salario_liquido(valor_salario_bruto, valor_percentual_ir, valor_percentual_inss, valor_percentual_fgts)
+    valor_salario_liquido = calcula_salario_liquido(valor_salario_bruto, valor_percentual_ir, valor_percentual_inss)
     
     mensagem_retorno = retorna_mensagem_salario_liquido(valor_salario_bruto, valor_percentual_ir, valor_percentual_inss, valor_percentual_fgts, valor_total_descontos, valor_salario_liquido)
-    print(mensagem_retorno
-          )
+    print(mensagem_retorno)
+
 def analise_exeptions(valor_hora, horas_trabalhadas):
 
     if not isinstance(valor_hora, (float, int)):
@@ -77,7 +72,7 @@ def calcula_valores_impostos_ir(salario_bruto):
         if salario_bruto >= range_salario.start and salario_bruto < range_salario.stop:
             valor_percentual_ir = salario_bruto*(percentual_ir/100)
 
-            return valor_percentual_ir
+    return valor_percentual_ir
         
 def calcula_valores_impostos_inss(salario_bruto):
     ranges_salarios = [
@@ -91,63 +86,63 @@ def calcula_valores_impostos_inss(salario_bruto):
         if salario_bruto >= range_salario.start and salario_bruto < range_salario.stop:
             valor_percentual_inss = salario_bruto*(percentual_inss/100)
 
-            return valor_percentual_inss
+    return valor_percentual_inss
 
 def calcula_valores_impostos_fgts(salario_bruto):
     ranges_salarios = [
-        (range(0, 901), 11),
-        (range(901, 1501), 11),
-        (range(1501, 2501), 11),
-        (range(2501, 10000000000), 11),
+        (range(0, 901), 8),
+        (range(901, 1501), 8),
+        (range(1501, 2501), 8),
+        (range(2501, 10000000000), 8),
         ]
     
     for (range_salario, percentual_fgts) in ranges_salarios:
-        if salario_bruto >= range_salario.start and salario_bruto < range_salario.stop:
+        if salario_bruto > 7507.49:
+            valor_percentual_fgts = 869.36
+            
+        elif salario_bruto >= range_salario.start and salario_bruto < range_salario.stop:
             valor_percentual_fgts = salario_bruto*(percentual_fgts/100)
 
-            return valor_percentual_fgts
+    return valor_percentual_fgts
 
-def calcula_salario_liquido(salario_bruto, valor_percentual_ir, valor_percentual_inss, valor_percentual_fgts):
+def calcula_salario_liquido(salario_bruto, valor_percentual_ir, valor_percentual_inss):
 
     ranges_salarios = [
-        (range(0, 901), 0, 10, 11),
-        (range(901, 1501), 5, 10, 11),
-        (range(1501, 2501), 10, 10, 11),
-        (range(2501, 10000000000), 20, 10, 11),
+        (range(0, 901), 0, 10),
+        (range(901, 1501), 5, 10),
+        (range(1501, 2501), 10, 10),
+        (range(2501, 10000000000), 20, 10),
         ]
 
-    for (range_salario, percentual_ir, percentual_inss, percentual_fgts) in ranges_salarios:
+    for (range_salario, percentual_ir, percentual_inss) in ranges_salarios:
         if salario_bruto >= range_salario.start and salario_bruto < range_salario.stop:
             valor_percentual_ir = salario_bruto*(percentual_ir/100)
             valor_percentual_inss = salario_bruto*(percentual_inss/100)
-            valor_percentual_fgts = salario_bruto*(percentual_fgts/100)
 
-            salario_liquido = salario_bruto - (valor_percentual_ir + valor_percentual_inss + valor_percentual_fgts)
+            salario_liquido = salario_bruto - (valor_percentual_ir + valor_percentual_inss)
 
-            return salario_liquido
+    return salario_liquido
         
-def calcula_valor_total_impostos(salario_bruto, valor_percentual_ir, valor_percentual_inss, valor_percentual_fgts):
+def calcula_valor_total_impostos(salario_bruto, valor_percentual_ir, valor_percentual_inss):
     ranges_salarios = [
-        (range(0, 901), 0, 10, 11),
-        (range(901, 1501), 5, 10, 11),
-        (range(1501, 2501), 10, 10, 11),
-        (range(2501, 10000000000), 20, 10, 11),
+        (range(0, 901), 0, 10),
+        (range(901, 1501), 5, 10),
+        (range(1501, 2501), 10, 10),
+        (range(2501, 10000000000), 20, 10),
         ]
 
-    for (range_salario, percentual_ir, percentual_inss, percentual_fgts) in ranges_salarios:
+    for (range_salario, percentual_ir, percentual_inss) in ranges_salarios:
         if salario_bruto >= range_salario.start and salario_bruto < range_salario.stop:
             valor_percentual_ir = salario_bruto*(percentual_ir/100)
             valor_percentual_inss = salario_bruto*(percentual_inss/100)
-            valor_percentual_fgts = salario_bruto*(percentual_fgts/100)
 
-            valor_total_impostos = valor_percentual_ir + valor_percentual_inss + valor_percentual_fgts
+            valor_total_impostos = valor_percentual_ir + valor_percentual_inss
 
-            return valor_total_impostos
+    return valor_total_impostos
 
 
 def retorna_mensagem_salario_liquido(salario_bruto, valor_percentual_ir, valor_percentual_inss, valor_percentual_fgts, total_descontos, salario_liquido):
-    return f"Seu salário bruto e de R${salario_bruto}\nDesconto IR = R${valor_percentual_ir:.2f}\nDesconto INSS R${valor_percentual_inss:.2f}\nDesconto FGTS {valor_percentual_fgts:.2f}\nO total de descontos foi de R${total_descontos:.2f}\nSeu salario liquido e R${salario_liquido:.2f}"
-
+    return f"Seu salário bruto e de R${salario_bruto:.2f}\nO desconto IR(-) = R${valor_percentual_ir:.2f}\nO desconto do INSS(-) = R${valor_percentual_inss:.2f}\nO valor do se FGTS e de = R${valor_percentual_fgts:.2f}\nO total de descontos foi de = R${total_descontos:.2f}\nSeu salario liquido e de = R${salario_liquido:.2f}"
 
 
 main()
