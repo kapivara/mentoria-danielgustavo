@@ -9,7 +9,9 @@ Desconto do IR:
 Salário Bruto até 900 (inclusive) - isento
 Salário Bruto até 1500 (inclusive) - desconto de 5%
 Salário Bruto até 2500 (inclusive) - desconto de 10%
-Salário Bruto acima de 2500 - desconto de 20% Imprima na tela as informações, dispostas conforme o exemplo abaixo.
+Salário Bruto acima de 2500 - desconto de 20%
+
+Imprima na tela as informações, dispostas conforme o exemplo abaixo.
 
 No exemplo o valor da hora é 5 e a quantidade de hora é 220.
 
@@ -29,9 +31,9 @@ def main():
     qtd_horas_trabalhadas = float(input("Quantas horas de trabalho você teve esse mês? "))
 
     valor_salario_bruto = calcula_salario_bruto(valor_hora_trabalhada,qtd_horas_trabalhadas)
-    valor_percentual_ir = calcula_valores_impostos_ir(valor_salario_bruto)
-    valor_percentual_inss = calcula_valores_impostos_inss(valor_salario_bruto)
-    valor_percentual_fgts = calcula_valores_impostos_fgts(valor_salario_bruto)
+    valor_percentual_ir = calcula_valor_imposto_ir(valor_salario_bruto)
+    valor_percentual_inss = calcula_valor_imposto_inss(valor_salario_bruto)
+    valor_percentual_fgts = calcula_valor_imposto_fgts(valor_salario_bruto)
 
     valor_total_descontos = calcula_valor_total_impostos(valor_salario_bruto, valor_percentual_inss, valor_percentual_fgts)
 
@@ -60,7 +62,7 @@ def calcula_salario_bruto(valor_hora, horas_trabalhadas):
 
     return salario_bruto            
 
-def calcula_valores_impostos_ir(salario_bruto):
+def calcula_valor_imposto_ir(salario_bruto):
     ranges_salarios = [
         (range(0, 901), 0),
         (range(901, 1501), 5),
@@ -74,7 +76,7 @@ def calcula_valores_impostos_ir(salario_bruto):
 
     return valor_percentual_ir
         
-def calcula_valores_impostos_inss(salario_bruto):
+def calcula_valor_imposto_inss(salario_bruto):
     ranges_salarios = [
         (range(0, 901), 10),
         (range(901, 1501), 10),
@@ -88,12 +90,12 @@ def calcula_valores_impostos_inss(salario_bruto):
 
     return valor_percentual_inss
 
-def calcula_valores_impostos_fgts(salario_bruto):
+def calcula_valor_imposto_fgts(salario_bruto):
     ranges_salarios = [
-        (range(0, 901), 8),
-        (range(901, 1501), 8),
-        (range(1501, 2501), 8),
-        (range(2501, 10000000000), 8),
+        (range(0, 901), 11),
+        (range(901, 1501), 11),
+        (range(1501, 2501), 11),
+        (range(2501, 10000000000), 11),
         ]
     
     for (range_salario, percentual_fgts) in ranges_salarios:
