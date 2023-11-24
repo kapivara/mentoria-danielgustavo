@@ -19,9 +19,6 @@ def analisa_numero_semana(numero_semana):
     if type(numero_semana) != int:
         raise Exception("Por favor, digite um numero valido")
 
-    elif numero_semana < 0:
-        raise ValueError ("O valor da hora de trabalho não pode ser negativo!!!!")
-
     elif numero_semana not in [1,2,3,4,5,6,7]:
         raise ValueError ("Numero Invalido!!!")
 
