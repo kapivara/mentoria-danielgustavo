@@ -59,13 +59,13 @@ def valida_conceito_nota(nota_media):
         
 def valida_status_aluno(nota_media):
     if nota_media > 6:
-        status = "Aprovado"
+        status = " foi Aprovado(a), parabéns por sua dedicação, continue assim!!!"
         return status
     else:
-        status = "Reprovado"
+        status = " infelizmente você foi Reprovado(a), se esforce um pouco mais nos estudos"
         return status
         
 def retorno_mensagem_status_aluno(nome_aluno, nota_media, valida_conceito, status):
-    return (f"Ola caro aluno {nome_aluno}, sua nota média foi de {nota_media}, seu conceito ficou classificado como {valida_conceito}, e você foi {status}")
+    return (f"Ola caro aluno {nome_aluno}, sua nota média foi de {nota_media:.2f}, seu conceito ficou classificado como {valida_conceito}, e você{status}")
 
-main()
+#main()
