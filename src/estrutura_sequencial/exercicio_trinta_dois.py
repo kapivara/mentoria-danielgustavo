@@ -17,18 +17,41 @@ def main():
     segundo_lado = float(input("Digite a medida a medida do segundo lado: "))
     terceiro_lado = float(input("Digite a medida a medida do terceiro lado: "))
 
-    validacao_triangulo = valida_formacao_triangulo(primeiro_lado, segundo_lado, terceiro_lado)
+    valida_form_triangulo_equilatero = valida_formacao_triangulo_equilatero(primeiro_lado, segundo_lado, terceiro_lado)
+    valida_form_triangulo_isosceles = valida_form_triangulo_isosceles
 
     tipo_triangulo = valida_tipo_triangulo(primeiro_lado, segundo_lado, terceiro_lado)
 
-    def valida_formacao_triangulo(primeiro_lado, segundo_lado, terceiro_lado):
-        if primeiro_lado and segundo_lado > terceiro_lado or segundo_lado and terceiro_lado > primeiro_lado or primeiro_lado and terceiro_lado > segundo_lado:
+    print(valida_form_triangulo_equilatero)
+    print(valida_form_triangulo_isosceles)
+    print()
+    print(tipo_triangulo)
+
+def valida_formacao_triangulo(primeiro_lado, segundo_lado, terceiro_lado):
+        if primeiro_lado + segundo_lado > terceiro_lado and segundo_lado + terceiro_lado > primeiro_lado and primeiro_lado + terceiro_lado > segundo_lado:
+            return "E possível a formação de um triangulo!!!\nEsse triangulo e Equilatero"
+        
+        elif primeiro_lado == segundo_lado or segundo_lado == terceiro_lado or primeiro_lado == terceiro_lado:
             return "E possível a formação de um triangulo!!!"
         
         else:
             return "Não e possivel a formação do triangulo!!!"
-    
-    def valida_tipo_triangulo():
+
+def valida_tipo_triangulo_equilatero(primeiro_lado, segundo_lado, terceiro_lado):
+        if primeiro_lado == segundo_lado and primeiro_lado == terceiro_lado:
+            return "Triângulo Equilátero!!!"
+
+def valida_formacao_triangulo_isosceles(primeiro_lado, segundo_lado, terceiro_lado):
+        if primeiro_lado + segundo_lado > terceiro_lado and segundo_lado + terceiro_lado > primeiro_lado and primeiro_lado + terceiro_lado > segundo_lado:
+            return "E possível a formação de um triangulo!!!\nEsse triangulo e Equilatero"
         
+        elif primeiro_lado == segundo_lado or segundo_lado == terceiro_lado or primeiro_lado == terceiro_lado:
+            return "E possível a formação de um triangulo!!!"
+        
+        else:
+            return "Não e possivel a formação do triangulo!!!"
+       
+def valida_tipo_triangulo_isoceles(primeiro_lado, segundo_lado, terceiro_lado):
+     
 
 main()
