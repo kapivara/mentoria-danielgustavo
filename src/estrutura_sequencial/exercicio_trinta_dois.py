@@ -17,18 +17,26 @@ def main():
     segundo_lado = float(input("Digite a medida a medida do segundo lado: "))
     terceiro_lado = float(input("Digite a medida a medida do terceiro lado: "))
 
-    valida_execptions = valida_medidas_exeptions(primeiro_lado, segundo_lado, terceiro_lado)
+    valida_execptions = exeptions_validations(primeiro_lado, segundo_lado, terceiro_lado)
 
-    valida_formacao = valida_formacao_triangulo(primeiro_lado, segundo_lado, terceiro_lado)
+    valida_formacao = is_triangle_validations(primeiro_lado, segundo_lado, terceiro_lado)
 
-    triangulo_equilatero = valida_formacao_triangulo(primeiro_lado, segundo_lado, terceiro_lado)
+    triangulo_equilatero = is_equilatero_triangle(primeiro_lado, segundo_lado, terceiro_lado)
+    triangulo_isoceles = is_isoceles_triangle(primeiro_lado, segundo_lado, terceiro_lado)
+    triangulo_escaleno = is_escaleno_triangle(primeiro_lado, segundo_lado, terceiro_lado)
 
-    print(valida_form_triangulo_equilatero)
-    print(valida_form_triangulo_isosceles)
-    print()
-    print(tipo_triangulo)
+    triangle_ytpe = return_triangle_type
 
-def valida_medidas_exeptions(primeiro_lado, segundo_lado, terceiro_lado):
+    print(valida_execptions)
+    print(valida_formacao)
+
+    print(triangulo_equilatero)
+    print(triangulo_isoceles)
+    print(triangulo_escaleno)
+
+    print(triangle_ytpe)
+
+def exeptions_validations(primeiro_lado, segundo_lado, terceiro_lado):
     if not isinstance(primeiro_lado, (float, int)):
         raise Exception ("Por favor, digite um numero correto!!!")
     
@@ -39,29 +47,54 @@ def valida_medidas_exeptions(primeiro_lado, segundo_lado, terceiro_lado):
         raise Exception ("Por favor, digite um numero correto!!!")
     
     else:
-        return "Todas as medidas estão OK!!!"
+        return "\nTodas as medidas estão OK!!!"
 
-def valida_formacao_triangulo(primeiro_lado, segundo_lado, terceiro_lado):
-        if primeiro_lado + segundo_lado > terceiro_lado and segundo_lado + terceiro_lado > primeiro_lado and primeiro_lado + terceiro_lado > segundo_lado:
-            return "E possível a formação de um triangulo!!!"
+def is_triangle_validations(primeiro_lado, segundo_lado, terceiro_lado):
+        if primeiro_lado + segundo_lado > terceiro_lado or \
+            segundo_lado + terceiro_lado > primeiro_lado or \
+            primeiro_lado + terceiro_lado > segundo_lado:
+            return "\nE possível a formação de um triangulo!!!\n"
         
-        elif primeiro_lado == segundo_lado or segundo_lado == terceiro_lado or primeiro_lado == terceiro_lado:
-            return "E possível a formação de um triangulo!!!"
+        elif primeiro_lado == segundo_lado or \
+                segundo_lado == terceiro_lado or \
+                primeiro_lado == terceiro_lado:
+            return "\nE possível a formação de um triangulo!!!\n"
         
         else:
-            return "Não e possivel a formação do triangulo!!!"
+            return "\nNão e possivel a formação do triangulo!!!\n"
 
-def valida_tipo_triangulo_equilatero(primeiro_lado, segundo_lado, terceiro_lado):
+def is_equilatero_triangle(primeiro_lado, segundo_lado, terceiro_lado):
     return primeiro_lado == segundo_lado == terceiro_lado
 
-def valida_formacao_triangulo_isosceles(primeiro_lado, segundo_lado, terceiro_lado):
+def is_isoceles_triangle(primeiro_lado, segundo_lado, terceiro_lado):
     return  primeiro_lado == segundo_lado != terceiro_lado or \
             segundo_lado == terceiro_lado != primeiro_lado or \
             terceiro_lado == primeiro_lado != segundo_lado
        
-def valida_tipo_triangulo_escaleno(primeiro_lado, segundo_lado, terceiro_lado):
+def is_escaleno_triangle(primeiro_lado, segundo_lado, terceiro_lado):
     return primeiro_lado != segundo_lado != terceiro_lado != primeiro_lado
+
+def return_triangle_type(primeiro_lado, segundo_lado, terceiro_lado):
+
+    return_triangle_equilatero = is_equilatero_triangle(primeiro_lado, segundo_lado, terceiro_lado)
+    if return_triangle_equilatero:
+        return "As medidas formam um triangulo equilatero!!!"
     
-def mensagem_retorna_tipo_triangulo():
+    elif return_triangle_equilatero:
+        return "As medidas NÃO formam um triangulo equilatero!!!"
+
+    return_triangle_isoceles = is_isoceles_triangle(primeiro_lado, segundo_lado, terceiro_lado)
+    if return_triangle_isoceles:
+        return "As medidas formam um triangulo Isoceles!!!"
+    
+    elif return_triangle_isoceles:
+        return "As medidas NÃO formam um triangulo equilatero!!!"
+    
+    return_triangle_escaleno = is_escaleno_triangle(primeiro_lado, segundo_lado, terceiro_lado)
+    if return_triangle_escaleno:
+        return"As medidas formam um triangulo equilatero!!!"
+    
+    elif return_triangle_escaleno:
+        return "As medidas NÃO formam um triangulo equilatero!!!"
 
 main()
