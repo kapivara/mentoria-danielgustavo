@@ -25,7 +25,7 @@ def main():
     triangulo_isoceles = is_isoceles_triangle(primeiro_lado, segundo_lado, terceiro_lado)
     triangulo_escaleno = is_escaleno_triangle(primeiro_lado, segundo_lado, terceiro_lado)
 
-    triangle_ytpe = return_triangle_type
+    triangle_ytpe = return_triangle_type(primeiro_lado, segundo_lado, terceiro_lado)
 
     print(valida_execptions)
     print(valida_formacao)
@@ -80,21 +80,12 @@ def return_triangle_type(primeiro_lado, segundo_lado, terceiro_lado):
     if return_triangle_equilatero:
         return "As medidas formam um triangulo equilatero!!!"
     
-    elif return_triangle_equilatero:
-        return "As medidas NÃO formam um triangulo equilatero!!!"
-
     return_triangle_isoceles = is_isoceles_triangle(primeiro_lado, segundo_lado, terceiro_lado)
     if return_triangle_isoceles:
         return "As medidas formam um triangulo Isoceles!!!"
     
-    elif return_triangle_isoceles:
-        return "As medidas NÃO formam um triangulo equilatero!!!"
-    
     return_triangle_escaleno = is_escaleno_triangle(primeiro_lado, segundo_lado, terceiro_lado)
     if return_triangle_escaleno:
-        return"As medidas formam um triangulo equilatero!!!"
-    
-    elif return_triangle_escaleno:
-        return "As medidas NÃO formam um triangulo equilatero!!!"
+        return"As medidas formam um triangulo escaleno!!!"
 
 main()
