@@ -46,46 +46,69 @@ def exeptions_validations(primeiro_lado, segundo_lado, terceiro_lado):
     elif not isinstance(terceiro_lado, (float, int)):
         raise Exception ("Por favor, digite um numero correto!!!")
     
+    elif primeiro_lado < 0 or segundo_lado < 0 or terceiro_lado < 0:
+        raise Exception ("Por favor, digite um numero positivo!")
+ 
     else:
-        return "\nTodas as medidas estão OK!!!"
+        return "\nExeptions: Todas as medidas estão OK!!!\n"
 
 def is_triangle_validations(primeiro_lado, segundo_lado, terceiro_lado):
-        if primeiro_lado + segundo_lado > terceiro_lado or \
-            segundo_lado + terceiro_lado > primeiro_lado or \
-            primeiro_lado + terceiro_lado > segundo_lado:
-            return "\nE possível a formação de um triangulo!!!\n"
-        
-        elif primeiro_lado == segundo_lado or \
-                segundo_lado == terceiro_lado or \
-                primeiro_lado == terceiro_lado:
-            return "\nE possível a formação de um triangulo!!!\n"
+        if primeiro_lado + segundo_lado > terceiro_lado and \
+            segundo_lado + terceiro_lado > primeiro_lado and \
+            terceiro_lado + primeiro_lado > segundo_lado:
+            print ("\nE possível a formação de um triangulo!!!\n")
+            return True
+     
+        elif primeiro_lado == segundo_lado and \
+            segundo_lado == terceiro_lado and \
+            primeiro_lado == terceiro_lado:
+            print ("\nE possível a formação de um triangulo!!!\n")
+            return True
         
         else:
-            return "\nNão e possivel a formação do triangulo!!!\n"
+            print("\nNão e possível a formação de um triangulo!!!\n")
+            return False
 
 def is_equilatero_triangle(primeiro_lado, segundo_lado, terceiro_lado):
-    return primeiro_lado == segundo_lado == terceiro_lado
+    if is_triangle_validations(primeiro_lado, segundo_lado, terceiro_lado):
+        return primeiro_lado == segundo_lado == terceiro_lado
+    else:
+        return False
 
 def is_isoceles_triangle(primeiro_lado, segundo_lado, terceiro_lado):
-    return  primeiro_lado == segundo_lado != terceiro_lado or \
+    if is_triangle_validations(primeiro_lado, segundo_lado, terceiro_lado):
+        return  primeiro_lado == segundo_lado != terceiro_lado or \
             segundo_lado == terceiro_lado != primeiro_lado or \
             terceiro_lado == primeiro_lado != segundo_lado
+    else:
+        return False
        
 def is_escaleno_triangle(primeiro_lado, segundo_lado, terceiro_lado):
-    return primeiro_lado != segundo_lado != terceiro_lado != primeiro_lado
+    if is_triangle_validations(primeiro_lado, segundo_lado, terceiro_lado):
+        return primeiro_lado != segundo_lado != terceiro_lado != primeiro_lado
+    else:
+        return False
 
 def return_triangle_type(primeiro_lado, segundo_lado, terceiro_lado):
-
     return_triangle_equilatero = is_equilatero_triangle(primeiro_lado, segundo_lado, terceiro_lado)
     if return_triangle_equilatero:
-        return "As medidas formam um triangulo equilatero!!!"
+        return "\nAs medidas formam um triangulo equilatero!!!\n"
+    
+    else:
+        print(" ")
     
     return_triangle_isoceles = is_isoceles_triangle(primeiro_lado, segundo_lado, terceiro_lado)
     if return_triangle_isoceles:
-        return "As medidas formam um triangulo Isoceles!!!"
+        return "\nAs medidas formam um triangulo Isoceles!!!\n"
+    
+    else:
+        print(" ")
     
     return_triangle_escaleno = is_escaleno_triangle(primeiro_lado, segundo_lado, terceiro_lado)
     if return_triangle_escaleno:
-        return"As medidas formam um triangulo escaleno!!!"
+        return"\nAs medidas formam um triangulo escaleno!!!\n"
+    
+    else:
+        print(" ")
 
-main()
+#main()
