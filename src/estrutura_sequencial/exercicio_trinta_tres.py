@@ -31,7 +31,7 @@ def bissext_mensage_year(year):
 def main():
     year = int(input("Digite um ano para saber se ele e bissexto: "))
 
-    year_validations = validations_execpions_year(year)
+    year_validations = validations_excepitons_year(year)
 
     bissext_definition = validation_bissext_yaer(year)
 
