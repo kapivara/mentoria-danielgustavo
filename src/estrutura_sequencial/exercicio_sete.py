@@ -19,7 +19,7 @@ def calcula_area_quadrado(lado_um, lado_dois):
     return (lado_um*lado_dois)*2
 
 def imprime_area_quadrado(dobro_area):
-    print ((f"O dobro da area deste quadrado e de {dobro_area} centimentros."))
+    return ((f"O dobro da area deste quadrado e de {dobro_area} centimentros."))
 
 def main():
     lado_um = float(input("Digite o comprimento do lado do quadrado: "))
@@ -29,3 +29,4 @@ def main():
     return mensagem
 
 #main()
+
