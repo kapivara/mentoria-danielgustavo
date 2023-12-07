@@ -23,4 +23,4 @@ def main():
     mensagem = imprime_area(calculo)
     print(mensagem)
 
-main()
+#main()

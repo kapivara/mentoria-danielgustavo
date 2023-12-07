@@ -20,3 +20,5 @@ def main():
     resultado = soma_numero(numero_um, numero_dois)
     mensagem = imprime_resultado(resultado)
     print(mensagem)
+
+#main()
