@@ -47,8 +47,8 @@ def is_calculation_equation(variable_a, variable_b, variable_c):
         return "Essa equação NÃO POSSUI raizes reais!!!!"
 
     elif delta_calculation == 0:
-        delta_calculation = -variable_b/ (2*variable_a)
-        return f"Essa equação possui APENAS uma raiz real: {delta_calculation}"
+        delta_calculation = -variable_b / (2*variable_a)
+        return f"Essa equação possui APENAS UMA raiz real: {delta_calculation}"
     
     elif delta_calculation > 0:
         delta_calculation_raiz1 = (-variable_b + math.sqrt(delta_calculation)) / (2*variable_a)
@@ -57,8 +57,8 @@ def is_calculation_equation(variable_a, variable_b, variable_c):
 
 def main():
     variable_a = float(input("Digite o valor de A: "))
-    analysis_variables = is_analysis_variable_a(variable_a)
-
+    is_analysis_variable_a(variable_a)
+    
     variable_b = float(input("Digite o valor de B: "))
     variable_c = float(input("Digite o valor de C: "))
 
@@ -69,4 +69,4 @@ def main():
     print(validations_exeptions_variables)
     print(result_equation)
 
-main()
+#main()
