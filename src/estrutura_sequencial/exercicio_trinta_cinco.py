@@ -6,7 +6,6 @@ Faça um Programa que peça uma data no formato dd/mm/aaaa e determine se a mesm
 
 """
 from datetime import datetime
-import sys
 
 print("\n Hello user, this program validates dates, please enter the dates in DD/MM/YYYY or YYYY/MM/DD format's\n")
 
@@ -21,8 +20,7 @@ def is_validations_exeptions(date_user):
         except ValueError:
             pass
     
-    print ("Invalid input: Please enter a valid date in format!!!\n")
-    sys.exit()  
+    print ("Invalid input: Please enter a valid date in format, or your date is not valid!!!\n")
         
 def is_validation_date(date_user):
     formats = ["%d-%m-%Y", "%Y-%m-%d", "%d/%m/%Y", "%Y/%m/%d"]
@@ -33,8 +31,8 @@ def is_validation_date(date_user):
             return "Nice!!!, your date is valid!!!\n"
         except ValueError:
             pass
-    
-    return "Your date is not valid!!!"        
+
+    return "Your date is not valid!!!"           
 
 def main(): 
     date_user = input("Enter a your date for the validations: ")
@@ -46,5 +44,5 @@ def main():
     print(validations_exeptions_variables)
     print(validation_date)
     
-#if __name__ == "__main__":
-    #main()
+if __name__ == "__main__":
+    main()
