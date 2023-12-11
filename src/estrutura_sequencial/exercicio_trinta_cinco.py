@@ -37,7 +37,7 @@ def is_validation_date(date_user):
     return "Your date is not valid!!!"        
 
 def main(): 
-    date_user = input("Enter a date: ")
+    date_user = input("Enter a your date for the validations: ")
 
     validations_exeptions_variables = is_validations_exeptions(date_user)
 
