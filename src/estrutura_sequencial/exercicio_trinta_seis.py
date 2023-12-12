@@ -13,6 +13,7 @@ Exemplo 1: Para sacar a quantia de 256 reais, o programa fornece duas notas de
 Exemplo 2: Para sacar a quantia de 399 reais, o programa fornece três notas de
 100, uma nota de 50, quatro notas de 10, uma nota de 5 e quatro notas de 1.
 """
+
 def is_amount_validation(withdrawal_amount):
     if type(withdrawal_amount) != int:
         raise ValueError ("Sorry, this bank's teller doesn't work with cents!!!\n")
@@ -23,15 +24,40 @@ def is_amount_validation(withdrawal_amount):
     else:
         return "Everything ok, we are separating your money\n"
 
-def is_money_separate():
-     
+def is_money_separate(withdrawal_amount):
+    if withdrawal_amount < 10 or withdrawal_amount > 600:
+        return "The requested amount cannot be withdrawn, please choose an amount between 10 and 600 dollars"
+
+    notes_avaible = [100, 50, 10, 5, 1]
+    result = []
+
+    for notes in notes_avaible:
+        notes_amount = withdrawal_amount // notes
+        if notes_amount > 0:
+            result.append(f"{notes_amount} note's R${notes}")
+            withdrawal_amount %= notes
+    
+    return result
+
+def is_return_amount():
+    print ("\nSuccessful Withdrawal\n")
 
 def main():
-    withdrawal_amount = int(input("Qual valor desejas sacar ? "))
+    withdrawal_amount = int(input("What amount do you want to withdraw?"))
 
     amount_validations = is_amount_validation(withdrawal_amount)
 
     result_amount = is_money_separate(withdrawal_amount)
+
+    return_amount_ok = is_return_amount
+
+    print(amount_validations)
+
+    if isinstance(result_amount, str):
+        print(result_amount)
+
+    else:
+        print(return_amount_ok)
 
 if __name__ == "__main__":
     main()
