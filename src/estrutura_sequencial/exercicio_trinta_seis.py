@@ -19,14 +19,14 @@ def is_amount_validation(withdrawal_amount):
         raise ValueError ("Sorry, this bank's teller doesn't work with cents!!!\n")
         
     elif withdrawal_amount < 0:
-        return ValueError ("We cannot provide negative values\n")
+        return ValueError ("\nWe cannot provide negative values\n")
         
     else:
-        return "Everything ok, we are separating your money\n"
+        return "\nEverything ok, we are separating your money\n"
 
 def is_money_separate(withdrawal_amount):
     if withdrawal_amount < 10 or withdrawal_amount > 600:
-        return "The requested amount cannot be withdrawn, please choose an amount between 10 and 600 dollars"
+        return "\nThe requested amount cannot be withdrawn, please choose an amount between 10 and 600 dollars\n"
 
     notes_avaible = [100, 50, 10, 5, 1]
     result = []
@@ -34,22 +34,17 @@ def is_money_separate(withdrawal_amount):
     for notes in notes_avaible:
         notes_amount = withdrawal_amount // notes
         if notes_amount > 0:
-            result.append(f"{notes_amount} note's R${notes}")
+            result.append(f"{notes_amount} note's ${notes}")
             withdrawal_amount %= notes
     
-    return result
-
-def is_return_amount():
-    print ("\nSuccessful Withdrawal\n")
+    return result 
 
 def main():
-    withdrawal_amount = int(input("What amount do you want to withdraw?"))
+    withdrawal_amount = int(input("\nWhat amount do you want to withdraw? "))
 
     amount_validations = is_amount_validation(withdrawal_amount)
 
     result_amount = is_money_separate(withdrawal_amount)
-
-    return_amount_ok = is_return_amount
 
     print(amount_validations)
 
@@ -57,7 +52,9 @@ def main():
         print(result_amount)
 
     else:
-        print(return_amount_ok)
+        print ("\nSuccessful Withdrawal\n")
+        for notes in result_amount:
+            print (notes)
 
 if __name__ == "__main__":
     main()
