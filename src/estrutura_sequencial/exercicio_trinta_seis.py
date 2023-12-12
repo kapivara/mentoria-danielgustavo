@@ -56,5 +56,5 @@ def main():
         for notes in result_amount:
             print (notes)
 
-if __name__ == "__main__":
-    main()
+#if __name__ == "__main__":
+    #main()
