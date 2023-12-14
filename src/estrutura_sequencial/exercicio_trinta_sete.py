@@ -12,11 +12,11 @@ Faça um Programa que leia um número inteiro menor que 1000 e imprima a
 quantidade de centenas, dezenas e unidades do mesmo.#40
 
 """
-def is_number_validation(number_validation):
-    if type(number_validation) != int:
+def is_number_validation(int_number):
+    if type(int_number) != int:
         raise ValueError ("Sorry, but your number needs to be an integer\n")
     
-    elif number_validation > 1000:
+    elif int_number >= 1000:
         return "\nSorry, The number cannot be greater than 1000\n"
         
     else:
