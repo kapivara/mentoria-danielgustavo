@@ -13,12 +13,13 @@ quantidade de centenas, dezenas e unidades do mesmo.#40
 
 """
 def is_number_validation(int_number):
+    int_number = int_number.int
     if type(int_number) != int:
         raise ValueError ("Sorry, but your number needs to be an integer\n")
-    
+        
     elif int_number >= 1000:
         return "\nSorry, The number cannot be greater than 1000\n"
-        
+            
     else:
         return "\nEverything ok!!!\n"
 
@@ -34,7 +35,7 @@ def is_number_quantification(int_number):
                 return f"{int_number} = Your number have a {hundreds} hundreds, {dozens} dozens and {units} units!!!\n"      
 
 def main():
-    int_number = int(input("Enter a integer number: "))
+    int_number = input("Enter a integer number: ")
 
     int_number_validation = is_number_validation(int_number)
 
